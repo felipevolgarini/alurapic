@@ -20,18 +20,12 @@ const routes:Routes = [
     },
     {
         path: '',
-        component: HomeComponent,
-        canActivate: [AuthGuard],
-        children: [
-            {
-                path: '',
-                component: SignInComponent,
-            },
-            {
-                path: 'signup',
-                component: SignUpComponent,
-            },
-        ]
+        pathMatch: 'full',
+        redirectTo: 'home'
+    },
+    {
+        path: 'home',
+        loadChildren: './home/home.module#HomeModule'        
     },
     {
         path: 'p/add', 
